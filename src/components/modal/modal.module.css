@@ -1,0 +1,18 @@
+
+.modal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-paper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bbc9e9;
+    boxShadow: 24;
+    width: 40%;
+    height: 40%;
+    padding: 2rem;
+}

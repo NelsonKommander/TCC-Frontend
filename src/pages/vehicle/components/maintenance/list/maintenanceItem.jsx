@@ -34,23 +34,23 @@ export default function MaintenanceItem(props)
               </Menu>
           </>
       );  
-    };
+    }
     
     return(
         <>
-            <ListItem divider={true}>
+            <ListItem key={props.key} divider={true}>
                 <Grid container spacing={1}>
                     <Grid item xs={10}>
                         <Typography align="left" variant="h6">
-                            {props.localizacao} - {props.data}
+                            {props.localizacao} - {props.data.format("L")}
                         </Typography>
                         <Typography align="left" varitant="body">
                             {props.descricao}
                         </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    {props.exibirMenu && <Grid item xs={2}>
                         <Menuzinho/>
-                    </Grid>
+                    </Grid>}
                 </Grid>
             </ListItem>
         </>

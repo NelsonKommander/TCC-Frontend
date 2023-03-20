@@ -1,0 +1,28 @@
+﻿.mainStack
+{
+    background-color: var(--background);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+}
+
+.maintenanceStack
+{
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.paper
+{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 30rem !important;
+    width: 30rem !important;
+    padding: 2.5rem;
+}

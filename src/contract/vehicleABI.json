@@ -1,76 +1,27 @@
 ﻿[
   {
-    "name": "Hit",
-    "inputs": [
-      {
-        "name": "scorer",
-        "type": "address",
-        "indexed": false
-      },
-      {
-        "name": "owner",
-        "type": "address",
-        "indexed": false
-      },
-      {
-        "name": "hits",
-        "type": "int128",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "Transfered",
-    "inputs": [
-      {
-        "name": "p_owner",
-        "type": "address",
-        "indexed": false
-      },
-      {
-        "name": "n_owner",
-        "type": "address",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
     "stateMutability": "nonpayable",
-    "type": "constructor",
+    "type": "function",
+    "name": "setup",
     "inputs": [
+      {
+        "name": "_manager",
+        "type": "address"
+      },
       {
         "name": "_owner",
         "type": "address"
       },
       {
-        "name": "_plate",
+        "name": "_vin",
+        "type": "string"
+      },
+      {
+        "name": "_model",
         "type": "string"
       }
     ],
     "outputs": []
-  },
-  {
-    "stateMutability": "nonpayable",
-    "type": "function",
-    "name": "score_hit",
-    "inputs": [],
-    "outputs": []
-  },
-  {
-    "stateMutability": "view",
-    "type": "function",
-    "name": "get_hits",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "int128"
-      }
-    ]
   },
   {
     "stateMutability": "nonpayable",
@@ -87,6 +38,38 @@
       },
       {
         "name": "_date",
+        "type": "uint256"
+      },
+      {
+        "name": "_mileage",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "edit_maintenance",
+    "inputs": [
+      {
+        "name": "_index",
+        "type": "uint256"
+      },
+      {
+        "name": "_description",
+        "type": "string"
+      },
+      {
+        "name": "_location",
+        "type": "string"
+      },
+      {
+        "name": "_date",
+        "type": "uint256"
+      },
+      {
+        "name": "_mileage",
         "type": "uint256"
       }
     ],
@@ -113,6 +96,42 @@
       {
         "name": "",
         "type": "uint256[]"
+      },
+      {
+        "name": "",
+        "type": "uint256[]"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "delete_maintenance",
+    "inputs": [
+      {
+        "name": "_index",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "get_vehicle",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      },
+      {
+        "name": "",
+        "type": "string"
+      },
+      {
+        "name": "",
+        "type": "string"
       }
     ]
   },
@@ -127,29 +146,5 @@
       }
     ],
     "outputs": []
-  },
-  {
-    "stateMutability": "view",
-    "type": "function",
-    "name": "owner",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ]
-  },
-  {
-    "stateMutability": "view",
-    "type": "function",
-    "name": "plate",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      }
-    ]
   }
 ]

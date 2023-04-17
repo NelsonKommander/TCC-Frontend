@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "../pages/login/loginPage";
-import VehiclesPage from "../pages/vehicles/vehiclesPage";
+import LoginPage from "../pages/login/LoginPage";
+import VehiclesPage from "../pages/vehicles/VehiclesPage";
 import PageElement from "../components/page-element/PageElement";
-import VehiclePage from "../pages/vehicle/vehiclePage";
+import VehiclePage from "../pages/vehicle/VehiclePage";
 
 export default function Router() {
     return (

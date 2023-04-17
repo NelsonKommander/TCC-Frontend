@@ -1,0 +1,90 @@
+[
+  {
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "template",
+        "type": "address"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "add_vehicle",
+    "inputs": [
+      {
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "name": "_vin",
+        "type": "string"
+      },
+      {
+        "name": "_model",
+        "type": "string"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "search_vin",
+    "inputs": [
+      {
+        "name": "vin",
+        "type": "string"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "search_my_vehicles",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address[]"
+      },
+      {
+        "name": "",
+        "type": "address[]"
+      },
+      {
+        "name": "",
+        "type": "string[]"
+      },
+      {
+        "name": "",
+        "type": "string[]"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "transfer_vehicle",
+    "inputs": [
+      {
+        "name": "_newOwner",
+        "type": "address"
+      },
+      {
+        "name": "_vehicle_address",
+        "type": "address"
+      }
+    ],
+    "outputs": []
+  }
+]

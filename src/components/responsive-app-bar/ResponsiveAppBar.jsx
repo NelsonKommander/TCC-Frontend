@@ -18,7 +18,17 @@ import { useNavigate } from "react-router-dom";
 function ResponsiveAppBar() {
   const navigate = useNavigate();
 
-  const pages = ["Seus Veículos", "Pesquisar por Chassi"];
+  const pages = [
+      {
+          name: "Seus Veículos",
+          onClick: () => {
+              navigate("/my-vehicles")
+          }
+      },
+      {
+          name: "Pesquisar por Chassi"
+      }
+  ];
   const settings = [
     {
       name: "Logout",
@@ -104,8 +114,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={page.onClick}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -132,11 +142,11 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={page.onClick}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

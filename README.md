@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+---- Frontend ----
+* Implementação funcional
+    * Criar listagem de veiculos
+        * Exibir marca, modelo, versão, ano e chassis do veículo
+    * Busca por chassi entre todos os veículos
+    * Finalizar detalhe do veiculo
+        * Editar manutenção
+        * Apagar manutenção
+        * Transferir o veiculo
+* Estilização
+    * Listagem
+    * Detalhe do veiculo
+* Analisar implementação de testes unitários
+

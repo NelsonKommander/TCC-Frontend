@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import {Button, Stack, TextField} from "@mui/material";
+import {Button, Stack, TextField, Typography} from "@mui/material";
 import AppContext from "../../../../../AppContext";
 
 export default function AddVehicleForm(props) {
@@ -49,7 +49,10 @@ export default function AddVehicleForm(props) {
 
     return (
         <>
-            <Stack spacing={2}>
+            <Stack spacing={2} sx={{width: '75%', maxWidth: '100%'}}>
+                <Typography align="center" variant="h6" fontWeight="bolder">
+                    Cadastrar veículo
+                </Typography>
                 <TextField
                     variant="outlined"
                     label="Chassi"

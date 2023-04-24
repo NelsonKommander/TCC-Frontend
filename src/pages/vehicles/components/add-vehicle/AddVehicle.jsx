@@ -3,6 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
 import Modal from "../../../../components/modal/Modal";
 import AddVehicleForm from "./add-vehicle-form/AddVehicleForm";
+import styles from './addVehicle.module.css';
 
 export default function AddVehicle() {
     const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ export default function AddVehicle() {
 
     return (
         <>
-            <Fab onClick={handleAddVehicle}>
+            <Fab onClick={handleAddVehicle} className={styles.button}>
                 <AddIcon />
             </Fab>
             <Modal open={showModal} handleClose={handleCloseVehicleModal}>

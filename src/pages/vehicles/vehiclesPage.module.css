@@ -4,7 +4,7 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
-    height: 100vh !important;
+    height: 83vh !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0;
@@ -19,12 +19,14 @@
 
 .paper
 {
+    border-radius: 3rem !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
     height: 35rem !important;
-    width: 90rem !important;
+    width: 40rem !important;
     max-width: 80% !important;
-    padding: 2.5rem;
+    padding-top: 0px;
+    padding: 3rem;
     margin-bottom: 8rem;
 }

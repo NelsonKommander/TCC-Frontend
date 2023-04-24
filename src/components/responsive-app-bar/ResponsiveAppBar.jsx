@@ -13,26 +13,18 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
-
+import SettingsIcon from '@mui/icons-material/Settings';
+import CarIcon from "../../assets/icons/car-icon.png";
+import styles from "../../pages/login/loginPage.module.css";
+import IconPage from "../../assets/icons/car-icon-white.png";
 
 function ResponsiveAppBar() {
   const navigate = useNavigate();
 
-  const pages = [
-      {
-          name: "Seus Veículos",
-          onClick: () => {
-              navigate("/my-vehicles")
-          }
-      },
-      {
-          name: "Pesquisar por Chassi"
-      }
-  ];
+  const pages = [];
   const settings = [
     {
       name: "Logout",
-      teste: "a",
       onClick: () => {
         navigate("/login")
       }
@@ -65,12 +57,15 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/*<AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1,cursor: "pointer" }}>*/}
+           <img src={IconPage} style={{width: "1.6rem", marginRight: "10px", paddingBottom: "2px"}} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick = {() => {
+              navigate("/my-vehicles")
+            }}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -78,10 +73,11 @@ function ResponsiveAppBar() {
               fontWeight: 700,
               letterSpacing: ".2rem",
               color: "inherit",
-              textDecoration: "none"
+              textDecoration: "none",
+              cursor: "pointer"
             }}
           >
-            Single Vehicle
+            ManuChain
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -122,10 +118,13 @@ function ResponsiveAppBar() {
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
+            onClick = {() => {
+                navigate("/my-vehicles")
+            }}
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/my-vehicles"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -137,7 +136,7 @@ function ResponsiveAppBar() {
               textDecoration: "none"
             }}
           >
-            Single Vehicle
+            ManuChain
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -154,7 +153,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <SettingsIcon sx={{color: "white"}}/>
               </IconButton>
             </Tooltip>
             <Menu

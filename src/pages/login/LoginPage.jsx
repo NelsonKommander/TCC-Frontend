@@ -5,10 +5,10 @@ import CarIcon from "../../assets/icons/car-icon.png"
 import { useNavigate } from "react-router-dom";
 import Snack from "../../components/snackbar/Snack";
 import createContract from '../../contract/contractFactory';
-import {useContext, useState} from "react";
+import { useContext, useState } from "react";
 import AppContext from "../../AppContext";
 import ABI from '../../contract/managerABI.json'
-import {contractManagerAddress} from "../../contract/contractManagerAddress";
+import { contractManagerAddress } from "../../contract/contractManagerAddress";
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -29,9 +29,9 @@ export default function LoginPage() {
             };
 
             return accounts[0];
-        };
+        }
 
-        showErrorMessage("Não foi encontrada a carteira")
+        showErrorMessage("Não foi encontrada uma carteira instalada em seu navegador")
     }
 
     const showErrorMessage = (errorMessage) => {
@@ -44,16 +44,20 @@ export default function LoginPage() {
     }
 
     async function fazerLogin() {
-        const account = await getUserAccount();
 
+        try {
+            const account = await getUserAccount();
 
-        if (account) {
-            const managerContract = createContract(ABI, account, contractManagerAddress);
+            if (account) {
+                const managerContract = createContract(ABI, account, contractManagerAddress);
 
-            appContext.setManagerContract(managerContract);
-            appContext.setAccount(account);
+                appContext.setManagerContract(managerContract);
+                appContext.setAccount(account);
 
-            navigate("/my-vehicles");
+                navigate("/my-vehicles");
+            }
+        } catch(e){
+            showErrorMessage("Error ao requisitar a conta")
         }
     }
 
@@ -70,7 +74,7 @@ export default function LoginPage() {
                             height="50%"
                         >
                             <img src={CarIcon} className={styles.carIcon}/>
-                            <h3>Single Vehicle</h3>
+                            <h3>ManuChain</h3>
                         </Stack >
                         <div>
                             <Button onClick={fazerLogin} className={styles.button}>Login</Button>

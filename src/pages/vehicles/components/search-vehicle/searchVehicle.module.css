@@ -1,0 +1,22 @@
+
+.searchContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    background-color: var(--background);
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+
+}
+
+.paperSearch
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 40px !important;
+    width: 20% !important;
+}

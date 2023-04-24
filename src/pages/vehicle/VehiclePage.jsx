@@ -1,7 +1,7 @@
 import {useState, useEffect, useContext} from "react";
 import MaintenanceList from "./components/maintenance/list/MaintenanceList";
 import {useLocation} from "react-router-dom";
-import {Stack, Fab, Paper} from "@mui/material";
+import {Stack, Fab, Paper, Typography} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import styles from './vehiclePage.module.css';
 import createContract from '../../contract/contractFactory';
@@ -12,7 +12,7 @@ import HandymanIcon from '@mui/icons-material/Handyman';
 import ABI from '../../contract/vehicleABI.json'
 import AppContext from "../../AppContext";
 
-export default function VehiclePage(props)
+export default function VehiclePage()
 {
     let mounted = false;
     const location = useLocation();
@@ -73,20 +73,28 @@ export default function VehiclePage(props)
     
     return(
         <Stack className={styles.mainStack}>
-            <p>Chassi: {vin}</p>
-            <p>Modelo: {model}</p>
             <Paper elevation={3} className={styles.paper}>
-                <Stack className={styles.maintenanceStack} spacing={2} justifyContent="flex-start">
-                    {(!maintenances || !maintenances[0] || maintenances[0].length <= 0) && <EmptyList icon={HandymanIcon}  fontSizeIcon="5rem" message="Nenhuma manutenção cadastrada"/>}
-                    {maintenances && maintenances[0] && maintenances[0].length > 0 && <MaintenanceList contract={contract} owner={owner} maintenances={maintenances}/>}
-                    <Stack direction="row" justifyContent="flex-end">
-                        <Fab onClick={handleAddMaintenance}>
-                            <AddIcon />
-                        </Fab>
+                <Stack className={styles.subStack}>
+                    <div>
+                        <Typography align="center" variant="h6" fontWeight="bolder">
+                            {model}
+                        </Typography>
+                        <Typography align="center">
+                            {vin}
+                        </Typography>
+                    </div>
+                    <Stack className={styles.maintenanceStack} spacing={2} justifyContent="flex-start">
+                        {(!maintenances || !maintenances[0] || maintenances[0].length <= 0) && <EmptyList icon={HandymanIcon}  fontSizeIcon="5rem" message="Nenhuma manutenção cadastrada"/>}
+                        {maintenances && maintenances[0] && maintenances[0].length > 0 && <MaintenanceList contract={contract} owner={owner} maintenances={maintenances}/>}
+                        <Stack direction="row" justifyContent="flex-end">
+                            <Fab onClick={handleAddMaintenance} className={styles.button}>
+                                <AddIcon />
+                            </Fab>
+                        </Stack>
+                        <Modal open={showModal} handleClose={handleCloseMaintenaceModal}>
+                            <AddMaintenanceForm contract={contract} handleBack={handleCloseMaintenaceModal}></AddMaintenanceForm>
+                        </Modal>
                     </Stack>
-                    <Modal open={showModal} handleClose={handleCloseMaintenaceModal}>
-                        <AddMaintenanceForm contract={contract} handleBack={handleCloseMaintenaceModal}></AddMaintenanceForm>
-                    </Modal>
                 </Stack>
             </Paper>
         </Stack>

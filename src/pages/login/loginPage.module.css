@@ -1,25 +1,15 @@
-:root
-{
-    --accent: #bbc9e9;
-    --background: #74819e;
-    --midterm: #98a5c4;
-}
-
-.button
-{
+.button {
     background-color: var(--accent) !important;
-    color: black !important;
+    color: white !important;
 }
 
-.centeredStack
-{
+.centeredStack {
     justify-content: center;
     align-items: center;
     justify-items: center
 }
 
-.container
-{
+.container {
     background-color: var(--background);
     display: flex !important;
     align-items: center;
@@ -30,16 +20,14 @@
     margin: 0;
 }
 
-.carIcon
-{
+.carIcon {
     width: 100px
 }
 
-.paper
-{
-    background-color: var(--midterm) !important;
+.paper {
     display: flex !important;
     align-items: center;
+    border-radius: 3rem !important;
     justify-content: center;
     height: 30rem !important;
     width: 30rem !important

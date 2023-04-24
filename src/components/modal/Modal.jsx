@@ -1,6 +1,6 @@
 import MuiModal from '@mui/material/Modal';
 import Paper from '@mui/material/Paper';
-import modalStyles from "./modal.module.css"
+import styles from "./modal.module.css"
 
 export default function Modal({children, open, handleClose})
 {
@@ -11,9 +11,9 @@ export default function Modal({children, open, handleClose})
                 onClose={handleClose}
                 aria-labelledby="parent-modal-title"
                 aria-describedby="parent-modal-description"
-                className={modalStyles["modal-container"]}
+                className={styles.container}
             >
-                <Paper className={modalStyles["modal-paper"]}>
+                <Paper className={styles.paper}>
                     {children}
                 </Paper>
             </MuiModal>

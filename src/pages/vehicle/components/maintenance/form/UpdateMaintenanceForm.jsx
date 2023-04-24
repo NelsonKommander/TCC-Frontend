@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Button, Stack, TextField} from "@mui/material";
+import {Button, Stack, TextField, Typography} from "@mui/material";
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import "./maintenceForm.css";
@@ -59,7 +59,10 @@ export default function UpdateMaintenanceForm(props) {
 
     return(
         <>
-            <Stack spacing={2}>
+            <Stack spacing={2} sx={{width: '75%', maxWidth: '100%'}}>
+                <Typography align="center" variant="h6" fontWeight="bolder">
+                    Atualizar manutenção
+                </Typography>
                 <TextField
                     variant="outlined"
                     label="Oficina"

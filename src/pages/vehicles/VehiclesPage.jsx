@@ -1,17 +1,18 @@
 import {useEffect, useContext, useState} from "react"
 import AppContext from "../../AppContext";
-
-import {Paper, Stack} from "@mui/material";
+import {Paper, Stack, TextField} from "@mui/material";
 import styles from "./vehiclesPage.module.css";
 import EmptyList from "../../components/empty-list/EmptyList";
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import Snack from "../../components/snackbar/Snack";
 import AddVehicle from "./components/add-vehicle/AddVehicle";
 import VehicleList from "./components/list/VehicleList";
-
+import SearchVehicle from "./components/search-vehicle/SearchVehicle";
+import {useNavigate} from "react-router-dom";
 
 export default function VehiclesPage(){
     const appContext = useContext(AppContext);
+    const navigate = useNavigate();
 
     const [vehicleList, setVehicleList] = useState([]);
     const [showVehicleList, setShowVehicleList] = useState(false);
@@ -39,9 +40,6 @@ export default function VehiclesPage(){
             || !vehicleList[2])
             return;
 
-        console.log(vehicleList);
-
-
         for (let i = 0; i < vehicleList[0].length; i++)
         {
             mappedVehicleList.push(
@@ -53,7 +51,6 @@ export default function VehiclesPage(){
                 });
         }
 
-        console.log(mappedVehicleList);
         return mappedVehicleList;
     };
 
@@ -88,13 +85,21 @@ export default function VehiclesPage(){
 
     useEffect(() => {
         if (!mounted){
-            handleGetVehicles();
+            const account = appContext.account;
+            console.log(account)
+
+            if(account)
+                handleGetVehicles();
+            else
+                navigate("/login");
+
             mounted = true;
         }
     }, [])
 
     return (
         <>
+            <SearchVehicle />
             <Stack className={styles.mainStack}>
                 <Paper elevation={3} className={styles.paper}>
                     <Stack className={styles.vehiclesListStack} spacing={2} justifyContent="flex-start">

@@ -21,6 +21,10 @@ export default function MaintenanceItem(props)
         const handleCloseModal = () => {
           setShowModal(false);
         };
+
+        const deleteMaintenance = async () => {
+          await props.contract.methods.delete_maintenance(props.index).send();
+        };
         
       return (
           <>
@@ -36,7 +40,7 @@ export default function MaintenanceItem(props)
                   <MenuItem onClick={() => setShowModal(true)}>
                       <div>Editar</div>
                   </MenuItem>
-                  <MenuItem>
+                  <MenuItem onClick={() => deleteMaintenance()}>
                       <div>Excluir</div>
                   </MenuItem>
               </Menu>
